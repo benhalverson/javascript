@@ -13,15 +13,32 @@
 // }
 
 // this code is the same as running the above code.
+// function getStockSymbols(stocks) {
+//   var symbols = [];
+//
+// stocks.forEach(function(stock){
+//   symbols.push(stock.symbol);
+// });
+//
+//   return symbols;
+// }
+
 function getStockSymbols(stocks) {
-  var symbols = [];
-
-stocks.forEach(function(stock){
-  symbols.push(stock.symbol);
-});
-
-  return symbols;
+  return stocks.map(function(stock){
+    return stock.symbol;
+  });
 }
+
+// 
+// Array.prototype.map = function(projection) {
+//   var results = [];
+//
+//   this.forEach(function(item) {
+//     results.push(projection(item));
+//   });
+//
+//   return results;
+// };
 
 var symbols = getStockSymbols([
    { symbol: 'XFX', price: 240.30, volume: 23432 },
