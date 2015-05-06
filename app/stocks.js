@@ -29,7 +29,7 @@ function getStockSymbols(stocks) {
   });
 }
 
-// 
+//
 // Array.prototype.map = function(projection) {
 //   var results = [];
 //
@@ -40,10 +40,38 @@ function getStockSymbols(stocks) {
 //   return results;
 // };
 
+
+// function getStocksOver(stocks, minPrice) {
+//   var results = [];
+//   stocks.forEach(function(stock) {
+//     if(stock.price >= minPrice){
+//       results.push(stock);
+//     }
+//   });
+//
+//   return results;
+// }
+
+
+function getStocksOver(stocks, minPrice) {
+  return stocks.filter(function(stock){
+    return stock.price >= minPrice;
+  });
+}
+
+var expensiveStocks = getStocksOver([
+   { symbol: 'ABC', price: 1240.30, volume: 23432 },
+   { symbol: 'DEF', price: 815.20, volume: 240 },
+   { symbol: 'GHI', price: 2015.50, volume: 5333 },
+  ], 900);
+
+console.log('Expensive stocks' + JSON.stringify(expensiveStocks));
+
+
 var symbols = getStockSymbols([
    { symbol: 'XFX', price: 240.30, volume: 23432 },
    { symbol: 'TNZ', price: 85.20, volume: 240 },
    { symbol: 'JXJ', price: 205.50, volume: 5333 },
   ]);
 
-console.log(JSON.stringify(symbols));
+// console.log(JSON.stringify(symbols));
